@@ -12,7 +12,6 @@ def main():
     import sys
     import time
 
-    from . import BOT_MODE
     from .fns.helper import bash, time_formatter, updater
     from .startup.funcs import (
         WasItRestart,
@@ -43,6 +42,8 @@ def main():
     ultroid_bot.run_in_loop(startup_stuff())
 
     ultroid_bot.me.phone = None
+
+    BOT_MODE = udB.get_key("BOTMODE")
 
     if not ultroid_bot.me.bot:
         udB.set_key("OWNER_ID", ultroid_bot.uid)
