@@ -6,8 +6,6 @@
 # <https://github.com/TeamUltroid/pyUltroid/blob/main/LICENSE>.
 
 from . import *
-from pyUltroid import BOT_MODE
-
 
 def main():
     import os
