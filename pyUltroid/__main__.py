@@ -12,6 +12,7 @@ def main():
     import sys
     import time
 
+    from . import BOT_MODE
     from .fns.helper import bash, time_formatter, updater
     from .startup.funcs import (
         WasItRestart,
