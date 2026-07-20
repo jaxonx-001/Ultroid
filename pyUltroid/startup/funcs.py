@@ -44,6 +44,7 @@ from telethon.tl.types import (
 )
 from telethon.utils import get_peer_id
 from decouple import config, RepositoryEnv
+from pyUltroid import BOT_MODE
 from .. import LOGS, ULTConfig
 from ..fns.helper import download_file, inline_mention, updater
 
@@ -508,7 +509,8 @@ async def ready():
         udB.set_key("LAST_UPDATE_LOG_SPAM", spam_sent.id)
 
     try:
-        await ultroid_bot(JoinChannelRequest("TheUltroid"))
+        if not BOT_MODE:
+            await ultroid_bot(JoinChannelRequest("TheUltroid"))
     except Exception as er:
         LOGS.exception(er)
 
