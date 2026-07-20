@@ -6,6 +6,7 @@
 # <https://github.com/TeamUltroid/pyUltroid/blob/main/LICENSE>.
 
 from . import *
+from pyUltroid import BOT_MODE
 
 
 def main():
@@ -77,10 +78,11 @@ def main():
     plugin_channels = udB.get_key("PLUGIN_CHANNEL")
 
     # Customize Ultroid Assistant...
-    ultroid_bot.run_in_loop(customize())
+    if not BOT_MODE:
+        ultroid_bot.run_in_loop(customize())
 
     # Load Addons from Plugin Channels.
-    if plugin_channels:
+    if plugin_channels and not BOT_MODE:
         ultroid_bot.run_in_loop(plug(plugin_channels))
 
     # Send/Ignore Deploy Message..
