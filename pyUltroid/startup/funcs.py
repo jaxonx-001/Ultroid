@@ -44,7 +44,6 @@ from telethon.tl.types import (
 )
 from telethon.utils import get_peer_id
 from decouple import config, RepositoryEnv
-from pyUltroid import BOT_MODE
 from .. import LOGS, ULTConfig
 from ..fns.helper import download_file, inline_mention, updater
 
@@ -472,6 +471,7 @@ async def ready():
     from .. import asst, udB, ultroid_bot
 
     chat_id = udB.get_key("LOG_CHANNEL")
+    BOT_MODE = udB.get_key("BOTMODE")
     spam_sent = None
     if not udB.get_key("INIT_DEPLOY"):  # Detailed Message at Initial Deploy
         MSG = """🎇 **Thanks for Deploying Ultroid Userbot!**
